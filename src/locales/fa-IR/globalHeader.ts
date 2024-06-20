@@ -1,0 +1,17 @@
+export default {
+  'component.globalHeader.search': 'Búsqueda en el sitio',
+  'component.globalHeader.search.example1': 'Ejemplo de búsqueda 1',
+  'component.globalHeader.search.example2': 'Ejemplo de búsqueda 2',
+  'component.globalHeader.search.example3': 'Ejemplo de búsqueda 3',
+  'component.globalHeader.help': 'Documentación',
+  'component.globalHeader.notification': 'Notificaciones',
+  'component.globalHeader.notification.empty': 'Has visto todas las notificaciones',
+  'component.globalHeader.message': 'Mensajes',
+  'component.globalHeader.message.empty': 'Has leído todos los mensajes',
+  'component.globalHeader.event': 'Tareas pendientes',
+  'component.globalHeader.event.empty': 'Has completado todas las tareas pendientes',
+  'component.noticeIcon.clear': 'Limpiar',
+  'component.noticeIcon.cleared': 'Limpiado',
+  'component.noticeIcon.empty': 'Sin datos',
+  'component.noticeIcon.view-more': 'Ver más',
+};
