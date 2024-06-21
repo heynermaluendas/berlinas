@@ -263,29 +263,12 @@ export default [
     path: '/sisi-pesv',
     routes: [
       {
-        name: 'Form-siniestros',
+        name: 'Formularios',
         path: '/sisi-pesv/form-siniestros',
         // redirect: '/sisi-pesv/form-siniestros',
         component: './sisi-pesv/form-siniestros',
       },
-      {
-        name: 'Form-administartivo',
-        path: '/sisi-pesv/form-administartivo',
-        // redirect: '/sisi-pesv/form-siniestros',
-        component: './sisi-pesv/form-siniestros',
-      },
-      {
-        name: 'Form-funcionamiento',
-        path: '/sisi-pesv/form-funcionamiento',
-        // redirect: '/sisi-pesv/form-siniestros',
-        component: './sisi-pesv/form-siniestros',
-      },
-      {
-        name: 'Form-vehiculos',
-        path: '/sisi-pesv/form-vehiculos',
-        // redirect: '/sisi-pesv/form-siniestros',
-        component: './sisi-pesv/form-siniestros',
-      },
+      
     ],
   },
   {
