@@ -4,6 +4,8 @@ import { Badge, Button,Modal,Table,Form,Input } from 'antd';
 import ExportToExcel from './ExportToExcel';
 import { SelectLang as UmiSelectLang } from '@umijs/max';
 import axios from 'axios';
+import Search from '../../pages/sisi-pesv/form-siniestros';
+
 
 
 
@@ -45,9 +47,10 @@ export const Question = () => {
   );
 };
 
-export const Tabla = () => {
+export const Tabla = ({ searchQuery }) => {
   const [data, setData] = useState([]);
   const [modalEditar, setModalEditar] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
   const [artista, setArtista] = useState({
     id: '',
     variable: '',
@@ -57,7 +60,15 @@ export const Tabla = () => {
     dato: ''
   });
 
-  
+  useEffect(() => {
+    if (searchQuery) {
+      setFilteredData(
+        data.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    } else {
+      setFilteredData(data);
+    }
+  }, [searchQuery]);
 
   const abrirCerrarModalEditar = () => {
     setModalEditar(!modalEditar);
@@ -98,27 +109,31 @@ export const Tabla = () => {
       dataIndex: 'valor',
       key: 'valor',
       render: (text, record) => (
-        <div  style={{  textAlign: 'center',padding: '0', width: '100px'  }} onDoubleClick={() => handleDoubleClick(record)}>
-          {record.id === artista.id ? (
-            <Input
-            value={record.id === artista.id ? artista.valor : text}
-            onChange={handleInputChange}
-            autoFocus
-            style={{
-              width: '100px',
-              textAlign: 'center',
-              border: 'none',
-              background: 'transparent',
-              outline: 'none',
-              boxShadow: 'none',
-              padding: '0'
-            }}
-          />
-          ) : (
-            text
-          )}
+        <div style={{ textAlign: 'center', padding: '0', width: '100px' }} onDoubleClick={() => handleDoubleClick(record)}>
+          {filteredData.map((item) => (
+            <div key={item.id} style={{ textAlign: 'center', padding: '0', width: '100px' }}>
+              {record.id === artista.id ? (
+                <Input
+                  value={record.id === artista.id ? artista.valor : text}
+                  onChange={handleInputChange}
+                  autoFocus
+                  style={{
+                    width: '100px',
+                    textAlign: 'center',
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    boxShadow: 'none',
+                    padding: '0',
+                  }}
+                />
+              ) : (
+                text
+              )}
+            </div>
+          ))}
         </div>
-      )
+      ),
     },
     {
       title: 'dato',
